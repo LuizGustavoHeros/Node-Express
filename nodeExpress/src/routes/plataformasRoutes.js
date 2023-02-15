@@ -1,13 +1,15 @@
 import express from "express";
-import PlataformasController from "../controllers/plataformaController.js";
+import PlataformaController from "../controllers/plataformasController.js";
+
 
 const router = express.Router();
 
 router
-    .get("/plataformas", PlataformasController.listarPlataformas)
-    .get("/plataformas/:id", PlataformasController.listarPlataformaPorId)
-    .post("/plataformas", PlataformasController.cadastrarPlataforma)
-    .put("/plataformas/:id", PlataformasController.atualizarPlataforma)
-    .delete("/plataformas/:id", PlataformasController.excluirPlataforma)
+    .get("/plataformas", PlataformaController.listarPlataformas)
+    .get("/plataformas/:id", PlataformaController.listarPlataformaPorId)
+    .post("/plataformas", PlataformaController.cadastrarPlataformas)
+    .put("/plataformas/:id", PlataformaController.atualizarPlataforma)
+    .delete("/plataformas/:id", PlataformaController.excluirPlataforma)
+    
 
-export default router
+export default router;

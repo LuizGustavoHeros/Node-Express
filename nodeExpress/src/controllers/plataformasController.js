@@ -1,18 +1,18 @@
 import plataformas from "../models/Plataformas.js";
 
-class PlataformasController{
+class PlataformaController {
     static listarPlataformas = (req, res) => {
-        plataformas.find((err,plataformas) => {
+        plataformas.find((err, plataformas) => {
             res.status(200).json(plataformas)
         })
     }
 
-    static cadastrarPlataforma = (req, res) => {
+    static cadastrarPlataformas = (req, res) => {
         let plataforma = new plataformas(req.body);
 
         plataforma.save((err) => {
             if(err) {
-                res.status(500).send({message: `${err.message} falha ao cadastrar plataforma`});
+                res.status(500).send({message: `${err.message} - faha ao cadastrar plataforma`});
             } else {
                 res.status(201).send(plataforma.toJSON())
             }
@@ -23,9 +23,9 @@ class PlataformasController{
 
         plataformas.findByIdAndUpdate(id, {$set: req.body}, (err) => {
             if(!err) {
-                res.status(200).send({message: 'Plataforma atualizada com sucesso'});
+                res.status(200).send({message: 'Plataforma atualizado com sucesso'});
             } else {
-                res.status(500).send({message: err.message})  
+                res.status(500).send({message: err.message})
             }
         })
     }
@@ -34,7 +34,7 @@ class PlataformasController{
 
         plataformas.findById(id, (err, plataformas) => {
             if(err) {
-                res.status(400).send({message: `${err.message} -id da plataforma não localizada`});
+                res.status(400).send({message: `${err.message} - id do plataforma não localizada`});
             } else {
                 res.status(200).send(plataformas)
             }
@@ -43,10 +43,9 @@ class PlataformasController{
     static excluirPlataforma = (req, res) => {
         const id = req.params.id;
 
-        plataformas.findByIdAndDelete(id, (err) => {
+        plataformas.findByIdAndDelete(id,  (err) => {
             if(!err) {
-                res.status(200).send({message: 'PLataforma removida com sucesso'})
-                
+                res.status(200).send({message: 'Plataforma removido com sucesso'})
             } else {
                 res.status(500).send({message: err.message})
             }
@@ -54,4 +53,4 @@ class PlataformasController{
     }
 }
 
-export default PlataformasController
+export default PlataformaController

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb+srv://senac:123@senac.39z8knd.mongodb.net/Senac");
+mongoose.connect("mongodb+srv://senac:123@cluster0.g9617zn.mongodb.net/senac");
+
 
 let db = mongoose.connection;
 
