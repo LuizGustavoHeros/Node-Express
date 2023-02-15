@@ -10,6 +10,5 @@ router
     .post("/jogos", JogosController.cadastrarJogo)
     .put("/jogos/:id", JogosController.atualizarJogo)
     .delete("/jogos/:id", JogosController.excluirJogo)
-    
 
-export default router;
+export default router
